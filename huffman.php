@@ -2,12 +2,13 @@
 
 function frequency($dados)
 {
+    $r = array();
     for($i = 0; $i < strlen($dados); $i++)
     {
-        //$r[$dados[$i]]
+            $r[$dados[$i]] += 1;
     }
-    
-    return $test = array("A" => 2, "B" => 1, "C" => 1);
+
+    return $r; //$test = array("A" => 2, "B" => 1, "C" => 1);
 }
 
 function huffmanEncoder($dados)
