@@ -11,7 +11,6 @@ function frequency($dados) {
 }
 
 function ordemFreq($array) {
-    //Array(a -> 1, b->2)
     foreach($array as $key => $value){
         $string = $string . $key;
     }
@@ -53,8 +52,15 @@ class ProblemaParaResolverTest extends PHPUnit_Framework_TestCase
         $this->assertSame(array("A" => 3, "B" => 1, "D" => 2, "C" => 1), frequency("ABAADDC"));
     }
     
-    function testOrdemFrequencia()
+    function testOrdemFrequenciaADBC()
     {
         $this->assertSame('ADBC', ordemFreq(array("A" => 3, "B" => 1, "D" => 2, "C" => 1)));
     }
+
+    function testOrdemFrequenciaDBCA()
+    {
+        $this->assertSame('DBCA', ordemFreq(array("A" => 1, "B" => 10, "D" => 11, "C" => 3)));
+    }
+
+
 }
