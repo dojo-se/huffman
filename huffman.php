@@ -27,13 +27,22 @@ function ordemFreq($array) {
     return $string;
 }
 
-function criaMapa($dados)
+function criaMapa($string)
 {
-    return array('D' => '0',
-                 'B' => '10',
-                 'C' => '110',
-                 'A' => '111'
-           );
+    $mapa = array();
+    for($i = 0; $i < strlen($string); $i++) {
+        if($i == strlen($string)-1){
+            $str = '';
+        }else{
+            $str = '0';
+        }
+        for($j = 0; $j < $i; $j++){
+            $str = '1'.$str;
+        }
+        $mapa[$string[$i]] = $str;
+    }
+
+    return $mapa;
 }
 
 function huffmanEncoder($dados)
