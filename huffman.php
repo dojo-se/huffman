@@ -27,6 +27,15 @@ function ordemFreq($array) {
     return $string;
 }
 
+function criaMapa($dados)
+{
+    return array('D' => '0',
+                 'B' => '10',
+                 'C' => '110',
+                 'A' => '111'
+           );
+}
+
 function huffmanEncoder($dados)
 {
     if ($dados == 'ABR')
@@ -62,5 +71,8 @@ class ProblemaParaResolverTest extends PHPUnit_Framework_TestCase
         $this->assertSame('DBCA', ordemFreq(array("A" => 1, "B" => 10, "D" => 11, "C" => 3)));
     }
 
-
+    function testMapa()
+    {
+        $this->assertSame(array('D' => '0', 'B' => '10', 'C' => '110', 'A' => '111'), criaMapa('DBCA'));
+    }
 }
