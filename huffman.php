@@ -11,7 +11,21 @@ function frequency($dados) {
 }
 
 function ordemFreq($array) {
-    return 'ADBC';
+    //Array(a -> 1, b->2)
+    foreach($array as $key => $value){
+        $string = $string . $key;
+    }
+    
+    for($i = 0; $i < strlen($string) -1; $i++){
+        for($j = $i+1; $j < strlen($string); $j++){
+            if($array[$string[$i]] < $array[$string[$j]]){
+                $aux = $string[$i];
+                $string[$i] = $string[$j];
+                $string[$j] = $aux;
+            }
+        }
+    }
+    return $string;
 }
 
 function huffmanEncoder($dados)
