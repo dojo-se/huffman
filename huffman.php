@@ -47,10 +47,13 @@ function criaMapa($string)
 
 function huffmanEncoder($dados)
 {
-    if ($dados == 'ABR')
-    {
-        return '01011';
+    $mapa = criaMapa(ordemFreq(frequency($dados)));
+    $r = '';
+    for($i = 0; $i < strlen($dados); $i++) {
+        $r = $r . $mapa[$dados[$i]];
     }
+    
+    return $r;
 }
 
 class ProblemaParaResolverTest extends PHPUnit_Framework_TestCase
@@ -83,5 +86,10 @@ class ProblemaParaResolverTest extends PHPUnit_Framework_TestCase
     function testMapa()
     {
         $this->assertSame(array('D' => '0', 'B' => '10', 'C' => '110', 'A' => '111'), criaMapa('DBCA'));
+    }
+    
+    function testHoraExtra()
+    {
+        $this->assertSame('01101010111110001000', huffmanEncoder('ABRRKBAARAA'));
     }
 }
